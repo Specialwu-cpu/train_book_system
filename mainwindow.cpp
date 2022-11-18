@@ -13,3 +13,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::on_bookButton_clicked()
+{
+    Book *book = new Book;
+    book->show();
+    this->hide();
+}

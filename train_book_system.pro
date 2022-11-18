@@ -1,4 +1,5 @@
 QT       += core gui
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,13 +17,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    book.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    ticket.cpp
 
 HEADERS += \
-    mainwindow.h
+    book.h \
+    mainwindow.h \
+    ticket.h
 
 FORMS += \
+    book.ui \
     mainwindow.ui
 
 # Default rules for deployment.
