@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-
+#include "loginbox.h"
 #include <QApplication>
 #include <QSqlDatabase>
 #include <QMessageBox>
@@ -34,9 +34,9 @@ int main(int argc, char *argv[])
     }
 
     //创建一个数据库表存储用户名和密码
-    QString userInfo = "CREATE TABLE IF not EXISTS userinfo(userId INT PRIMARY KEY,username VARCAHR(64),password VARCHAR(64));";
-    QString route = "create table if not exists route(routeId int PRIMARY KEY,start varchar(64),end varchar(64),ticketNumbers int);";
-    QString ticket = "create table if not exists ticket(ticketId int PRIMARY KEY,username varchar(64), routeId int,FOREIGN KEY (username) REFERENCES userinfo(username),FOREIGN KEY (routeId) REFERENCES route(routeId));";
+    QString userInfo = "CREATE TABLE IF not EXISTS userinfo(userId INTEGER PRIMARY KEY,username VARCAHR(64),password VARCHAR(64));";
+    QString route = "create table if not exists route(routeId INTEGER PRIMARY KEY,start varchar(64),end varchar(64),ticketNumbers int);";
+    QString ticket = "create table if not exists ticket(ticketId INTEGER PRIMARY KEY,username varchar(64), routeId int,FOREIGN KEY (username) REFERENCES userinfo(username),FOREIGN KEY (routeId) REFERENCES route(routeId));";
     //执行sql语句
     QSqlQuery query;
     //创建用户表并执行
@@ -51,12 +51,18 @@ int main(int argc, char *argv[])
     if(query.exec(ticket)){
         qDebug()<<"exec success";
     }
+    //自增主键
+    QString add = "ALTER userinfo ADD userId int IDENTITY (1, 1) NOT NULL;";
+    if(query.exec(add)){
+        qDebug()<<"add success";
+    }
 //    //数据库关闭
 //    db.close();
 //    return 0;
 
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    LoginBox lBox;
+//    lBox.setFixedSize(450,253);
+    lBox.show();
     return a.exec();
 }
