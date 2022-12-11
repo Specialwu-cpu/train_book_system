@@ -6,186 +6,371 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>280</width>
-    <height>432</height>
+    <width>600</width>
+    <height>450</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="widget_2" native="true">
+  <widget class="QLabel" name="titleLabel">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>54</y>
-     <width>259</width>
-     <height>70</height>
+     <x>125</x>
+     <y>30</y>
+     <width>350</width>
+     <height>30</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgba(255, 255, 255, 120);</string>
+    <string notr="true">QLabel
+{
+	font-family: 微软雅黑;
+    font:bold 16pt; /*字体*/
+}</string>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_7">
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout0" stretch="0,4">
-      <item>
-       <widget class="QLabel" name="accountLabel">
-        <property name="styleSheet">
-         <string notr="true">font: 12pt &quot;华文琥珀&quot;;
-background-color: rgba(255, 255, 255, 0);</string>
-        </property>
-        <property name="text">
-         <string>     账号：</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="accountLineEdit"/>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout1" stretch="1,4">
-      <item>
-       <widget class="QLabel" name="passwordLabel">
-        <property name="styleSheet">
-         <string notr="true">font: 12pt &quot;华文琥珀&quot;;
-background-color: rgba(255, 255, 255, 0);</string>
-        </property>
-        <property name="text">
-         <string>     密码：</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="passwordLineEdit">
-        <property name="echoMode">
-         <enum>QLineEdit::Password</enum>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
+   <property name="text">
+    <string>火车售票系统</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
-  <widget class="QWidget" name="widget_3" native="true">
+  <widget class="QLineEdit" name="accountLineEdit">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>130</y>
-     <width>259</width>
-     <height>294</height>
+     <x>180</x>
+     <y>100</y>
+     <width>240</width>
+     <height>40</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_6" stretch="2">
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout2" stretch="3,0,3">
-      <item>
-       <widget class="QPushButton" name="registButton">
-        <property name="minimumSize">
-         <size>
-          <width>30</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>华文琥珀</family>
-          <pointsize>11</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">font: 11pt &quot;华文琥珀&quot;;
-background-color: rgba(255, 255, 255, 120);</string>
-        </property>
-        <property name="text">
-         <string>注册</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer0">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="backButton">
-        <property name="minimumSize">
-         <size>
-          <width>30</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>华文琥珀</family>
-          <pointsize>11</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">font: 11pt &quot;华文琥珀&quot;;
-background-color: rgba(255, 255, 255, 120);</string>
-        </property>
-        <property name="text">
-         <string>返回</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+	border: 1px solid #A0A0A0; /* 边框宽度为1px，颜色为#A0A0A0 */
+	border-radius: 3px; /* 边框圆角 */
+	padding-left: 5px; /* 文本距离左边界有5px */
+	background-color: #F2F2F2; /* 背景颜色 灰*/
+	color: #000000; /* 文本颜色 黑*/
+	selection-background-color: #A0A0A0; /* 选中文本的背景颜色 */
+	selection-color: #F2F2F2; /* 选中文本的颜色 */
+	font-family: &quot;Times New Roman&quot;; /* 文本字体族 */
+	font-size: 12pt; /* 文本字体大小 */
+}
+
+QLineEdit:hover { /* 鼠标悬浮在QLineEdit时的状态 */
+	border: 1px solid #298DFF;
+	border-radius: 3px;
+	background-color: #F2F2F2;
+	color: #298DFF; /* 文本颜色 蓝*/
+	selection-background-color: #298DFF;
+	selection-color: #F2F2F2;
+}
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
   </widget>
-  <widget class="QWidget" name="widget" native="true">
+  <widget class="QLineEdit" name="passwordLineEdit">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>259</width>
-     <height>38</height>
+     <x>180</x>
+     <y>180</y>
+     <width>240</width>
+     <height>40</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_10">
-    <item>
-     <spacer name="horizontalSpacer_1">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>11</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <spacer name="horizontalSpacer_0">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>12</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-   </layout>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+	border: 1px solid #A0A0A0; /* 边框宽度为1px，颜色为#A0A0A0 */
+	border-radius: 3px; /* 边框圆角 */
+	padding-left: 5px; /* 文本距离左边界有5px */
+	background-color: #F2F2F2; /* 背景颜色 灰*/
+	color: #000000; /* 文本颜色 黑*/
+	selection-background-color: #A0A0A0; /* 选中文本的背景颜色 */
+	selection-color: #F2F2F2; /* 选中文本的颜色 */
+	font-family: &quot;Times New Roman&quot;; /* 文本字体族 */
+	font-size: 12pt; /* 文本字体大小 */
+}
+
+QLineEdit:hover { /* 鼠标悬浮在QLineEdit时的状态 */
+	border: 1px solid #298DFF;
+	border-radius: 3px;
+	background-color: #F2F2F2;
+	color: #298DFF; /* 文本颜色 蓝*/
+	selection-background-color: #298DFF;
+	selection-color: #F2F2F2;
+}
+</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="codeLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>260</y>
+     <width>240</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+	border: 1px solid #A0A0A0; /* 边框宽度为1px，颜色为#A0A0A0 */
+	border-radius: 3px; /* 边框圆角 */
+	padding-left: 5px; /* 文本距离左边界有5px */
+	background-color: #F2F2F2; /* 背景颜色 灰*/
+	color: #000000; /* 文本颜色 黑*/
+	selection-background-color: #A0A0A0; /* 选中文本的背景颜色 */
+	selection-color: #F2F2F2; /* 选中文本的颜色 */
+	font-family: &quot;Times New Roman&quot;; /* 文本字体族 */
+	font-size: 12pt; /* 文本字体大小 */
+}
+
+QLineEdit:hover { /* 鼠标悬浮在QLineEdit时的状态 */
+	border: 1px solid #298DFF;
+	border-radius: 3px;
+	background-color: #F2F2F2;
+	color: #298DFF; /* 文本颜色 蓝*/
+	selection-background-color: #298DFF;
+	selection-color: #F2F2F2;
+}
+</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="registButton">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>340</y>
+     <width>240</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/*鼠标悬浮时的效果*/
+QPushButton#myButton:hover
+{
+    color:#0000ff;
+    background-color:rgb(40, 85, 20); /*改变背景色*/
+    border-style:inset;/*改变边框风格*/
+    padding-left:8px;
+    padding-top:8px;
+}
+/*如果按下与悬浮想同时产生效果，hover必须写在pressed的后面*/
+/*鼠标按下时的效果*/
+QPushButton#myButton:pressed
+{
+    color:#00ff00;
+    background-color:rgb(40, 85, 20); /*改变背景色*/
+    border-style:inset;/*改变边框风格*/
+    padding-left:6px;
+    padding-top:6px;
+}
+ 
+/*鼠标不可用时的效果*/
+QPushButton#myButton:disabled
+{
+    color:#000000;
+    background-color:rgb(40, 85, 20); /*改变背景色*/
+    border-style:inset;/*改变边框风格*/
+    padding-left:6px;
+    padding-top:6px;
+}
+ 
+QPushButton
+{
+    color:white; /*文字颜色*/
+    background-color:#0189FF;/*背景色*/
+    border-style:outset; /*边框风格*/
+    border-width:2px;/*边框宽度*/
+    border-color:rgb(10, 46,112); /*边框颜色*/
+    border-radius:10px; /*边框倒角*/
+	font-family: 宋体;
+    font:bold 13pt; /*字体*/
+    padding:4px;/*内边距*/
+}
+</string>
+   </property>
+   <property name="text">
+    <string>注册</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="accountLabel">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>105</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel
+{
+	font-family: 宋体;
+    font:bold 12pt; /*字体*/
+}</string>
+   </property>
+   <property name="text">
+    <string>邮箱：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="passwordLabel">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>185</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel
+{
+	font-family: 宋体;
+    font:bold 12pt; /*字体*/
+}</string>
+   </property>
+   <property name="text">
+    <string>密码：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="codeLabel">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>265</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel
+{
+	font-family: 宋体;
+    font:bold 12pt; /*字体*/
+}</string>
+   </property>
+   <property name="text">
+    <string>验证码：</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="getCodeButton">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>265</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/**正常情况下样式**/
+QPushButton{
+	font: 9pt &quot;微软雅黑&quot;;
+    color: #2f3640;
+    border:none;
+    padding: 5px;
+}
+
+/*如果按下与悬浮想同时产生效果，hover必须写在pressed的后面*/
+
+/*鼠标悬浮时的效果*/
+QPushButton::hover
+{
+    color:rgb(96,96,96);
+	text-decoration:underline;
+    border-style:inset;/*改变边框风格*/
+	border-radius: 10px;
+    padding-left:8px;
+    padding-top:8px;
+}
+
+/*鼠标按下时的效果*/
+QPushButton::pressed
+{
+    color:#0000ff;
+    border-style:inset;/*改变边框风格*/
+	border-radius: 10px;
+    padding-left:8px;
+    padding-top:8px;
+}
+ 
+/*鼠标不可用时的效果*/
+QPushButton::disabled
+{
+    color:#000000;
+    background-color:rgb(40, 85, 20); /*改变背景色*/
+    border-style:inset;/*改变边框风格*/
+	border-radius: 10px;
+    padding-left:6px;
+    padding-top:6px;
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>获取验证码</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>390</y>
+     <width>240</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/*鼠标悬浮时的效果*/
+QPushButton#myButton:hover
+{
+    color:#0000ff;
+    background-color:rgb(40, 85, 20); /*改变背景色*/
+    border-style:inset;/*改变边框风格*/
+    padding-left:8px;
+    padding-top:8px;
+}
+/*如果按下与悬浮想同时产生效果，hover必须写在pressed的后面*/
+/*鼠标按下时的效果*/
+QPushButton#myButton:pressed
+{
+    color:#00ff00;
+    background-color:rgb(40, 85, 20); /*改变背景色*/
+    border-style:inset;/*改变边框风格*/
+    padding-left:6px;
+    padding-top:6px;
+}
+ 
+/*鼠标不可用时的效果*/
+QPushButton#myButton:disabled
+{
+    color:#000000;
+    background-color:rgb(40, 85, 20); /*改变背景色*/
+    border-style:inset;/*改变边框风格*/
+    padding-left:6px;
+    padding-top:6px;
+}
+ 
+QPushButton
+{
+    color:white; /*文字颜色*/
+    background-color:#606060;/*背景色*/
+    border-style:outset; /*边框风格*/
+    border-width:2px;/*边框宽度*/
+    border-color:rgb(10, 46,112); /*边框颜色*/
+    border-radius:10px; /*边框倒角*/
+	font-family: 宋体;
+    font:bold 13pt; /*字体*/
+    padding:4px;/*内边距*/
+}
+</string>
+   </property>
+   <property name="text">
+    <string>返回</string>
+   </property>
   </widget>
  </widget>
  <resources/>

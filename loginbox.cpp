@@ -5,6 +5,8 @@
 #include <QMessageBox>
 #include <QSqlTableModel>
 #include "regist.h"
+#include "findpassword.h"
+#include <QPixmap>
 
 LoginBox::LoginBox(QWidget *parent) :
     QWidget(parent),
@@ -12,20 +14,24 @@ LoginBox::LoginBox(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowTitle("火车订票系统");
+    QPixmap pixmap(":/new/prefix1/header/22.jpg");
+    pixmap = pixmap.scaled(ui->headerLabel->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    QPixmap image(ui->headerLabel->size().width(),ui->headerLabel->size().height());
+    image.fill(Qt::transparent);
+    QPainterPath painterPath;
+    painterPath.addEllipse(0, 0, ui->headerLabel->size().width(), ui->headerLabel->size().height());
+    QPainter painter(&image);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+    painter.setClipPath(painterPath);
+    painter.drawPixmap(0, 0, ui->headerLabel->size().width(), ui->headerLabel->size().height(), pixmap);
+    ui->headerLabel->setPixmap(image);
     ui->loginButton->setFocus();    //设置默认焦点
     ui->loginButton->setShortcut( QKeySequence::InsertParagraphSeparator );  //设置快捷键为键盘的“回车”键
 
     ui->loginButton->setShortcut(Qt::Key_Enter);  //设置快捷键为enter键
 
     ui->loginButton->setShortcut(Qt::Key_Return); //设置快捷键为小键盘上的enter键
-    // 设置按钮样式及悬浮、按下时的状态
-    ui->loginButton->setStyleSheet("QPushButton{border:2px groove gray;border-radius:10px;padding:2px 4px;border-style: outset;}"
-                                      "QPushButton:hover{background-color:rgb(229, 241, 251); color: black;}"
-                                      "QPushButton:pressed{background-color:rgb(204, 228, 247);border-style: inset;}");
-    // 设置按钮样式及悬浮、按下时的状态
-    ui->registerButton->setStyleSheet("QPushButton{border:2px groove gray;border-radius:10px;padding:2px 4px;border-style: outset;}"
-                                        "QPushButton:hover{background-color:rgb(229, 241, 251); color: black;}"
-                                        "QPushButton:pressed{background-color:rgb(204, 228, 247);border-style: inset;}");
+    ui->passwordLineEdit->setEchoMode(QLineEdit::Password);
 }
 
 LoginBox::~LoginBox()
@@ -74,7 +80,14 @@ void LoginBox::on_loginButton_clicked()
     delete model;
 }
 
-void LoginBox::on_registerButton_clicked()
+void LoginBox::on_forgetPasswordButton_clicked()
+{
+    FindPassword *findword = new FindPassword;
+    findword->show();
+    this->hide();
+}
+
+void LoginBox::on_registButton_clicked()
 {
     Regist *reg = new Regist;
 //    reg->setFixedSize(450,253);

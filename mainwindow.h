@@ -25,6 +25,8 @@ private slots:
 
     void on_backButton_clicked();
 
+    void on_passwordButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     User user;

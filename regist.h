@@ -24,8 +24,15 @@ private slots:
 
     void on_backButton_clicked();
 
+    void on_getCodeButton_clicked();
+
 private:
     Ui::Regist *ui;
+    int varificationCode;
+
+public:
+    int getVarificationCode();
+    void setVarificationCode(int);
 };
 
 #endif // REGIST_H

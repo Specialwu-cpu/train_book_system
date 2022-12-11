@@ -1,5 +1,7 @@
 QT       += core gui
 QT       += sql
+QT       += core gui network
+QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,26 +20,38 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     book.cpp \
+    filemanagment.cpp \
+    findpassword.cpp \
     loginbox.cpp \
     main.cpp \
     mainwindow.cpp \
     regist.cpp \
+    smtp.cpp \
     ticket.cpp \
     user.cpp
 
 HEADERS += \
     book.h \
+    filemanagment.h \
+    findpassword.h \
     loginbox.h \
     mainwindow.h \
     regist.h \
+    smtp.h \
     ticket.h \
     user.h
 
 FORMS += \
     book.ui \
+    findpassword.ui \
     loginbox.ui \
     mainwindow.ui \
     regist.ui
+
+UI_DIR=./UI
+
+RESOURCES += \
+    header.qrc
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

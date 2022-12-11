@@ -37,3 +37,8 @@ void MainWindow::on_backButton_clicked()
     login->show();
     this->hide();
 }
+
+void MainWindow::on_passwordButton_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->passwordPage);
+}
