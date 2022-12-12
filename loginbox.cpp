@@ -2,6 +2,7 @@
 #include "ui_loginbox.h"
 #include <QPainter>
 #include <QSqlQuery>
+#include <QSqlRecord>
 #include <QMessageBox>
 #include <QSqlTableModel>
 #include "regist.h"
@@ -93,4 +94,38 @@ void LoginBox::on_registButton_clicked()
 //    reg->setFixedSize(450,253);
     reg->show();
     this->hide();
+}
+
+void LoginBox::on_accountLineEdit_editingFinished()//当按返回或者回车键时，或者行编辑失去焦点时，发出此信号。
+{
+    QString username = ui->accountLineEdit->text();
+    QSqlTableModel *model = new QSqlTableModel;
+    model->setTable("userinfo");
+    model->setFilter(QString("username='%1'")
+                     .arg(username));
+    model->select();
+    int row = model->rowCount();
+
+    if(row > 0){
+        QString regist = QString("select imagePath from userinfo where username='%1'").arg(username);
+        QSqlQuery query;
+        if(query.exec(regist)&&query.next()){
+            QString imagePath = query.value(0).toString();
+            if(imagePath == NULL){
+                imagePath = ":/new/prefix1/header/22.jpg";//todo图片可以上传保存在数据库中
+            }
+            QPixmap pixmap(imagePath);
+            pixmap = pixmap.scaled(ui->headerLabel->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+            QPixmap image(ui->headerLabel->size().width(),ui->headerLabel->size().height());
+            image.fill(Qt::transparent);
+            QPainterPath painterPath;
+            painterPath.addEllipse(0, 0, ui->headerLabel->size().width(), ui->headerLabel->size().height());
+            QPainter painter(&image);
+            painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+            painter.setClipPath(painterPath);
+            painter.drawPixmap(0, 0, ui->headerLabel->size().width(), ui->headerLabel->size().height(), pixmap);
+            ui->headerLabel->setPixmap(image);
+        }
+    }
+    delete model;
 }

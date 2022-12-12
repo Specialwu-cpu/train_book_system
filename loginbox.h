@@ -26,6 +26,8 @@ private slots:
 
     void on_registButton_clicked();
 
+    void on_accountLineEdit_editingFinished();
+
 private:
     Ui::LoginBox *ui;
     MainWindow w;

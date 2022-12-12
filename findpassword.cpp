@@ -14,6 +14,7 @@ FindPassword::FindPassword(QWidget *parent) :
     ui(new Ui::FindPassword)
 {
     ui->setupUi(this);
+    ui->passwordLineEdit->setEchoMode(QLineEdit::Password);//todo 设置一个新按钮用来显示密码是否隐藏
 }
 
 FindPassword::~FindPassword()

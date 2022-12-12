@@ -15,7 +15,7 @@ Regist::Regist(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowTitle("火车订票系统");
-    ui->passwordLineEdit->setEchoMode(QLineEdit::Password);
+    ui->passwordLineEdit->setEchoMode(QLineEdit::Password);//todo 设置一个新按钮用来显示密码是否隐藏
 }
 
 Regist::~Regist()
