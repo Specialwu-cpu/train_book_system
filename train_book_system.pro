@@ -25,6 +25,7 @@ SOURCES += \
     loginbox.cpp \
     main.cpp \
     mainwindow.cpp \
+    mycombobox.cpp \
     regist.cpp \
     smtp.cpp \
     ticket.cpp \
@@ -36,6 +37,7 @@ HEADERS += \
     findpassword.h \
     loginbox.h \
     mainwindow.h \
+    mycombobox.h \
     regist.h \
     smtp.h \
     ticket.h \
