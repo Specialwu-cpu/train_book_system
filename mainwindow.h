@@ -2,7 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "book.h"
 #include "user.h"
 
 QT_BEGIN_NAMESPACE
@@ -54,7 +53,7 @@ private slots:
 
     void on_backToticketsButton_clicked();
 
-    void on_ticketsTable_clicked(const QModelIndex &index);
+    void on_ticketsTable_activated(const QModelIndex &index);
 
 private:
     Ui::MainWindow *ui;

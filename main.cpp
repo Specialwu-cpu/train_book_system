@@ -35,8 +35,8 @@ int main(int argc, char *argv[])
 
     //创建一个数据库表存储用户名和密码
     QString userInfo = "CREATE TABLE IF not EXISTS userinfo(userId INTEGER PRIMARY KEY,username VARCHAR(64),password VARCHAR(64), imagePath VARCHAR(255));";
-    QString route = "create table if not exists route(routeId INTEGER PRIMARY KEY,start varchar(64),end varchar(64),ticketNumbers int, date varchar(64));";
-    QString ticket = "create table if not exists ticket(ticketId INTEGER PRIMARY KEY,username varchar(64), routeId int,FOREIGN KEY (username) REFERENCES userinfo(username),FOREIGN KEY (routeId) REFERENCES route(routeId));";
+    QString route = "create table if not exists route(id INTEGER PRIMARY KEY, routeId int, start varchar(64),end varchar(64),ticketNumbers int, date varchar(64), startId int, endId int);";
+    QString ticket = "create table if not exists ticket(ticketId INTEGER PRIMARY KEY,username varchar(64), routeId int,start varchar(64), end varchar(64), date varchar(64), FOREIGN KEY (username) REFERENCES userinfo(username),FOREIGN KEY (routeId) REFERENCES route(routeId));";
     QString place = "create table if not exists place(placeId INTEGER PRIMARY KEY, placeName varchar(64));";
     //执行sql语句
     QSqlQuery query;

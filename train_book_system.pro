@@ -19,8 +19,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    book.cpp \
-    filemanagment.cpp \
     findpassword.cpp \
     loginbox.cpp \
     main.cpp \
@@ -28,12 +26,9 @@ SOURCES += \
     mycombobox.cpp \
     regist.cpp \
     smtp.cpp \
-    ticket.cpp \
     user.cpp
 
 HEADERS += \
-    book.h \
-    filemanagment.h \
     findpassword.h \
     loginbox.h \
     mainwindow.h \
@@ -44,7 +39,6 @@ HEADERS += \
     user.h
 
 FORMS += \
-    book.ui \
     findpassword.ui \
     loginbox.ui \
     mainwindow.ui \
