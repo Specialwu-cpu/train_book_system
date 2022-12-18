@@ -8,6 +8,7 @@
 #include <QTime>
 #include <QByteArray>
 #include <QDebug>
+#include <math.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -265,6 +266,7 @@ void MainWindow::on_tableView_activated(const QModelIndex &index)
     model->setHeaderData(5, Qt::Horizontal, tr("终点站序号"));
     model->select();
     ui->tableView->setModel(model);//数据放置进去
+    int routeId = model->data(model->index(index.row(), 0)).toString().toInt();
     QString route = model->data(model->index(index.row(), 0)).toString();
     QString startPlace = model->data(model->index(index.row(), 1)).toString();
     QString endPlace = model->data(model->index(index.row(), 2)).toString();
@@ -283,16 +285,41 @@ void MainWindow::on_tableView_activated(const QModelIndex &index)
     }
     QString numsSql = QString("select min(ticketNumbers) from route where startId>='%1' or endId<='%2'").arg(placeId1).arg(placeId2);
     QSqlQuery query2;
-    QString ticketNumbers;
+    int ticketNumbers = 0;
     if(query2.exec(numsSql) && query2.next()){
-        ticketNumbers = query2.value(0).toString();
+        ticketNumbers = query2.value(0).toString().toInt();
     }
     else{
         qDebug()<<"fail";
     }
+    QString totalNumsSql = QString("select total(ticketNumbers) from route where routeId='%1'").arg(routeId);
+    QSqlQuery query3;
+    int totalNums = 0;
+    if(query3.exec(totalNumsSql) && query3.next()){
+        totalNums = query3.value(0).toString().toInt();
+    }
+    else{
+        qDebug()<<"fail";
+    }
+    QString totalRouteIdSql = QString("select COUNT(routeId) from route where routeId='%1'").arg(routeId);
+    QSqlQuery query4;
+    int totalRouteId = 0;
+    if(query4.exec(totalRouteIdSql) && query4.next()){
+        totalRouteId = query4.value(0).toString().toInt();
+    }
+    else{
+        qDebug()<<"fail";
+    }
+    int ticketNums = floor(totalNums * (placeId2 - placeId1) / totalRouteId);
+    if(ticketNums < ticketNumbers){
+        ticketNumbers = ticketNums;
+    }
+    QString ticketNumber = QString::number(ticketNumbers);
+    qDebug()<<totalNums;
+    qDebug()<<totalRouteId;
     ui->stackedWidget->setCurrentWidget(ui->buyPage);
     ui->userMail2->setText(user.getName());
-    ui->ticketNum2->setText(ticketNumbers);
+    ui->ticketNum2->setText(ticketNumber);
     ui->routeId2->setText(route);
     ui->startPlace2->setText(ui->placeComboBox1->currentText());
     ui->endPlace2->setText(ui->placeComboBox2->currentText());
